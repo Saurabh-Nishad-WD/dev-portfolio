@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="app-container">
       {/* Wrapper for the first page to have the blush background */}
-      <div className="hero-page">
+      <div id="home" className="hero-page">
         {/* Navbar */}
         <nav className="navbar">
           <div className="nav-brand">Saurabh Nishad</div>
@@ -37,10 +37,10 @@ function App() {
 
           <ul className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
             <li><a href="#home" className="active" onClick={() => setMenuOpen(false)}>Home</a></li>
-            <li><a href="#about" onClick={() => setMenuOpen(false)}>About</a></li>
+            <li><a href="#about" onClick={() => setMenuOpen(false)}>About Me</a></li>
             <li><a href="#experiences" onClick={() => setMenuOpen(false)}>Experiences</a></li>
             <li><a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a></li>
-            <li><a href="#expertise" onClick={() => setMenuOpen(false)}>Expertise</a></li>
+            <li><a href="#achievements" onClick={() => setMenuOpen(false)}>Achievements</a></li>
             <li><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
           </ul>
 
@@ -203,42 +203,75 @@ I am a Full Stack Developer specializing in building modern, scalable, and user-
         
         <div className="experiences-container">
           
-          {/* Experience Card 1 */}
+          {/* Experience Card: Soft7 Technology (Priority) */}
           <div className="experience-card">
             <div className="exp-header">
               <div className="exp-title-wrapper">
-                <h3>Full Stack Developer & CTO</h3>
+                <h3>Full Stack Developer</h3>
                 <div className="company-info">
-                  <img src="/Srinzo_logo.png" alt="Srinzo Logo" className="company-logo" />
-                  <h4>Srinzo (Remote)</h4>
+                  <img src="/Soft7_logo11.png" alt="Soft7 Logo" className="company-logo" />
+                  <h4>
+                    <a href="https://app.soft7.in/" target="_blank" rel="noopener noreferrer" className="company-link">
+                      Soft7 Technology
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '6px' }}><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                    </a>
+                  </h4>
                 </div>
               </div>
-              <span className="exp-date">Jan 2025 – Present</span>
+              <span className="exp-date">03/2026 – 06/2026 | Remote</span>
             </div>
-            
-            <p className="exp-desc">
-              Leading the technical development and product strategy for Srinzo, a startup focused on simplifying hostel, PG, and rental accommodation discovery. Overseeing the complete software development lifecycle, from architecture and backend development to deployment and infrastructure management.
-            </p>
             
             <div className="exp-highlights">
               <ul>
-                <li>Led backend architecture and scalable database design using PostgreSQL & MongoDB.</li>
-                <li>Managed cloud deployment and DevOps infrastructure on AWS EC2, Render, and Hostinger.</li>
-                <li>Developed multiple user-facing modules and admin functionalities using React and Next.js.</li>
+                <li>Developed and integrated Meta WhatsApp Business APIs to support business messaging workflows.</li>
+                <li>Built CRM user interface components and implemented state management for interactive application features.</li>
+                <li>Developed a campaign creation module and dynamic template design functionality.</li>
+                <li>Integrated payment gateway functionality to support payment processing workflows.</li>
+                <li>Developed a dedicated developer portal to streamline API integration for developers, providing Postman API collections for endpoint testing and integration.</li>
               </ul>
             </div>
             
             <div className="exp-tech">
-              <span>React</span><span>Next.js</span><span>Node.js</span><span>TypeScript</span><span>AWS EC2</span><span>PostgreSQL</span><span>MongoDB</span><span>Prisma</span>
+              <span>Next.js</span><span>React.js</span><span>TypeScript</span><span>Prisma ORM</span><span>PostgreSQL</span><span>REST APIs</span><span>Postman</span><span>Meta WhatsApp Business API</span><span>Payment Gateway Integration</span><span>Git</span><span>GitHub</span>
             </div>
           </div>
 
-          {/* Experience Card 2 */}
-          
+          {/* Experience Card: Srinzo */}
+          <div className="experience-card">
+            <div className="exp-header">
+              <div className="exp-title-wrapper">
+                <h3>Full-Stack Developer & Team Lead</h3>
+                <div className="company-info">
+                  <img src="/Srinzo_logo.png" alt="Srinzo Logo" className="company-logo" />
+                  <h4>
+                    <a href="https://srinzo.co.in" target="_blank" rel="noopener noreferrer" className="company-link">
+                      Srinzo (College Startup)
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '6px' }}><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                    </a>
+                  </h4>
+                </div>
+              </div>
+              <span className="exp-date">08/2025 – Present | Kanpur</span>
+            </div>
+            
+            <div className="exp-highlights">
+              <ul>
+                <li>Developed a full-stack accommodation booking platform from scratch for students to discover hostels, PGs, flats, and rooms.</li>
+                <li>Built dedicated student and admin modules for property listings, user management, and platform operations.</li>
+                <li>Implemented real-time notifications using Socket.IO to deliver instant updates to users.</li>
+                <li>Integrated MSG91 OTP-based authentication for phone number verification and secure login.</li>
+                <li>Deployed and managed application infrastructure using AWS EC2, Amazon S3, and Google Cloud services.</li>
+              </ul>
+            </div>
+            
+            <div className="exp-tech">
+              <span>React.js</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>Socket.IO</span><span>AWS EC2</span><span>Amazon S3</span><span>Google Cloud</span><span>MSG91</span><span>REST APIs</span>
+            </div>
+          </div>
           
         </div>
 
-        <div className="expertise-section-wrapper">
+        <div id="expertise" className="expertise-section-wrapper">
           <div className="expertise-header-small">
             <h2>My <span>Expertise</span></h2>
           </div>
@@ -566,11 +599,11 @@ I am a Full Stack Developer specializing in building modern, scalable, and user-
           <div className="footer-col">
             <h4>Quick Links</h4>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#experiences">Experience</a></li>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Me</a></li>
+              <li><a href="#experiences">Experiences</a></li>
               <li><a href="#projects">Projects</a></li>
-              <li><a href="#experiences">Skills</a></li>
+              <li><a href="#achievements">Achievements</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
