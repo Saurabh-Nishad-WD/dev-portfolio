@@ -3,6 +3,21 @@ import './App.css'
 
 function App() {
   const [showEducation, setShowEducation] = useState(false);
+  const [activeAchievement, setActiveAchievement] = useState('tcs');
+  const [animDir, setAnimDir] = useState('');
+  const [certModal, setCertModal] = useState(false);
+
+  const handleAchievementChange = (id) => {
+    if (id === activeAchievement) return;
+    const tabs = ['tcs', 'naukri', 'leetcode'];
+    const currentIndex = tabs.indexOf(activeAchievement);
+    const nextIndex = tabs.indexOf(id);
+    setAnimDir(nextIndex > currentIndex ? 'slide-left' : 'slide-right');
+    setTimeout(() => {
+      setActiveAchievement(id);
+      setAnimDir('');
+    }, 300);
+  };
 
   return (
     <div className="app-container">
@@ -210,34 +225,7 @@ I am a Full Stack Developer specializing in building modern, scalable, and user-
           </div>
 
           {/* Experience Card 2 */}
-          <div className="experience-card">
-            <div className="exp-header">
-              <div className="exp-title-wrapper">
-                <h3>Full Stack Developer Intern</h3>
-                <div className="company-info">
-                  <img src="/Soft7_logo.png" alt="Soft7 Logo" className="company-logo" />
-                  <h4>Soft7 Technology (Remote)</h4>
-                </div>
-              </div>
-              <span className="exp-date">March '26 – June '26 (3 Months)</span>
-            </div>
-            
-            <p className="exp-desc">
-              Completed a professional internship focused on modern web application development, gaining hands-on experience in full-stack technologies and collaborative software development.
-            </p>
-            
-            <div className="exp-highlights">
-              <ul>
-                <li>Developed responsive web applications using React and Next.js.</li>
-                <li>Built backend APIs with Node.js and Express, integrated with Prisma ORM.</li>
-                <li>Delivered production-quality features on real-world business applications and participated in code reviews.</li>
-              </ul>
-            </div>
-            
-            <div className="exp-tech">
-              <span>React</span><span>Next.js</span><span>TypeScript</span><span>Node.js</span><span>Express.js</span><span>PostgreSQL</span><span>Prisma</span><span>Redux</span>
-            </div>
-          </div>
+          
           
         </div>
 
@@ -340,6 +328,114 @@ I am a Full Stack Developer specializing in building modern, scalable, and user-
 
         </div>
       </section>
+
+      {/* Achievements & Awards Section */}
+      <section id="achievements" className="achievements-section">
+        <div className="section-header-center">
+          <h2 className="section-title">Achievements <span>&amp; Awards</span></h2>
+          <p className="section-subtitle">Recognition and milestones from my journey so far.</p>
+        </div>
+
+        {/* Tab Switcher */}
+        <div className="achievements-tabs">
+          <button className={`ach-tab ${activeAchievement === 'tcs' ? 'active' : ''}`} onClick={() => handleAchievementChange('tcs')}>
+            <img src="/tcs.png" alt="TCS" className="ach-tab-img" />
+            Tata Consultancy Services
+          </button>
+          <button className={`ach-tab ${activeAchievement === 'naukri' ? 'active' : ''}`} onClick={() => handleAchievementChange('naukri')}>
+            <img src="/naukri.png" alt="Naukri" className="ach-tab-img" />
+            Naukri Campus
+          </button>
+
+          <button className={`ach-tab ${activeAchievement === 'leetcode' ? 'active' : ''}`} onClick={() => handleAchievementChange('leetcode')}>
+            <img src="/leetcode.webp" alt="LeetCode" className="ach-tab-img" />
+            LeetCode
+          </button>
+        </div>
+
+        {/* Content Panel */}
+        <div className="achievements-panel-wrapper">
+          <div className={`achievements-panel ${animDir}`} key={activeAchievement}>
+
+            {/* TCS */}
+            {activeAchievement === 'tcs' && (
+              <div className="ach-content">
+                <div className="ach-icon-wrap tcs-color">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <div className="ach-text">
+                  <span className="ach-badge">Offer Letter</span>
+                  <h3>Tata Consultancy Services (TCS) — Ninja Offer</h3>
+                  <p>Selected for the <strong>TCS Ninja role</strong> through campus recruitment and received an offer for the <strong>Assistant System Engineer Trainee</strong> position — recognizing academic excellence and technical aptitude.</p>
+                </div>
+              </div>
+            )}
+
+            {/* Naukri Campus */}
+            {activeAchievement === 'naukri' && (
+              <div className="ach-content ach-content-col">
+                <div className="ach-top-row">
+                  <div className="ach-icon-wrap naukri-color">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  </div>
+                  <div className="ach-text">
+                    <span className="ach-badge">Recognition</span>
+                    <h3>Naukri Campus Young Turks 2026 &nbsp;×&nbsp; HCLTech</h3>
+                    <p>Achieved <strong>95.41 percentile</strong> securing an <strong>All-India Rank of 18,400</strong> among participants — selected as part of the exclusive <strong>Naukri Campus × HCLTech Young Turks 2026</strong> program recognising top engineering talent across India.</p>
+                  </div>
+                </div>
+                {/* Certificate Preview */}
+                <div className="cert-preview-row">
+                  <p className="cert-label">Certificate Preview</p>
+                  <div className="cert-thumb" onClick={() => setCertModal(true)} title="Click to enlarge">
+                    <iframe
+                      src="https://drive.google.com/file/d/1Bpo4kRgnLsf4rTAIdDV8gRli48PKAw9e/preview"
+                      className="cert-iframe"
+                      allow="autoplay"
+                      title="Young Turks Certificate"
+                    ></iframe>
+                    <div className="cert-overlay">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                      <span>Click to expand</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* LeetCode */}
+            {activeAchievement === 'leetcode' && (
+              <div className="ach-content">
+                <div className="ach-icon-wrap leet-color">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div className="ach-text">
+                  <span className="ach-badge">Problem Solving</span>
+                  <h3>LeetCode — 600+ Problems Solved</h3>
+                  <p className="ach-date">🗓️ As of 19 October 2026</p>
+                  <p>Solved over <strong>600 coding problems</strong> on LeetCode, consistently strengthening problem-solving skills across Data Structures, Algorithms, Dynamic Programming, and programming proficiency.</p>
+                </div>
+              </div>
+            )}
+
+          </div>
+        </div>
+      </section>
+
+      {/* Certificate Lightbox Modal */}
+      {certModal && (
+        <div className="cert-modal-backdrop" onClick={() => setCertModal(false)}>
+          <div className="cert-modal-box" onClick={(e) => e.stopPropagation()}>
+            <button className="cert-modal-close" onClick={() => setCertModal(false)}>✕</button>
+            <iframe
+              src="https://drive.google.com/file/d/1Bpo4kRgnLsf4rTAIdDV8gRli48PKAw9e/preview"
+              className="cert-modal-iframe"
+              allow="autoplay"
+              title="Young Turks Certificate Full"
+            ></iframe>
+          </div>
+        </div>
+      )}
 
       {/* Contact Section */}
       <section id="contact" className="contact-section">
