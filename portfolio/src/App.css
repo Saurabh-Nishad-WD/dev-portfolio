@@ -1529,3 +1529,187 @@ body {
   .achievements-panel { padding: 32px 24px; }
   .ach-tab { padding: 12px 18px; font-size: 0.9rem; }
 }
+
+/* ============================
+   HAMBURGER MENU
+============================ */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 1001;
+}
+
+.ham-line {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background-color: var(--text-dark);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+/* Animate to X when open */
+.hamburger .ham-line.open:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger .ham-line.open:nth-child(2) { opacity: 0; }
+.hamburger .ham-line.open:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ============================
+   GLOBAL MOBILE ( ≤ 768px )
+============================ */
+@media (max-width: 768px) {
+
+  /* --- Navbar --- */
+  .navbar {
+    flex-wrap: wrap;
+    padding: 16px 20px;
+    position: relative;
+  }
+
+  .hamburger { display: flex; }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    background: var(--bg-white);
+    border-top: 1px solid #eee;
+    padding: 12px 0;
+    margin-top: 8px;
+  }
+
+  .nav-links.nav-open { display: flex; }
+
+  .nav-links li { width: 100%; }
+
+  .nav-links a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  .nav-actions { display: none; }
+
+  /* --- Hero --- */
+  .hero-section {
+    flex-direction: column-reverse;
+    padding: 20px 20px 40px;
+    gap: 30px;
+    min-height: unset;
+  }
+
+  .hero-content { text-align: center; max-width: 100%; }
+
+  .hero-title { font-size: 2rem; }
+
+  .hero-subtitle { font-size: 0.95rem; }
+
+  .hero-buttons { justify-content: center; flex-wrap: wrap; gap: 12px; }
+
+  .hero-image-wrapper {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+  }
+
+  .hero-person { width: 200px; height: 200px; }
+
+  /* --- About --- */
+  .about-section { padding: 40px 20px; }
+
+  .about-body { flex-direction: column; gap: 30px; }
+
+  .about-header { flex-direction: column; gap: 16px; align-items: flex-start; }
+
+  .section-title { font-size: 1.8rem; }
+
+  /* --- Experiences --- */
+  .experiences-section { padding: 40px 20px; }
+
+  .experience-card { padding: 20px; }
+
+  .exp-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+  /* --- Expertise --- */
+  .expertise-section-wrapper { padding: 40px 20px; }
+
+  .expertise-grid { grid-template-columns: 1fr; }
+
+  /* --- Projects --- */
+  .projects-section { padding: 40px 20px; }
+
+  .projects-grid { grid-template-columns: 1fr; }
+
+  /* --- Achievements --- */
+  .achievements-section { padding: 40px 20px; }
+
+  .achievements-tabs {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .ach-tab {
+    justify-content: flex-start;
+    border-radius: 14px;
+    padding: 12px 16px;
+  }
+
+  .achievements-panel { padding: 24px 20px; }
+
+  .ach-top-row { flex-direction: column; gap: 16px; }
+
+  .ach-icon-wrap { width: 56px; height: 56px; }
+
+  .ach-text h3 { font-size: 1.2rem; }
+
+  .cert-thumb { max-width: 100%; height: 200px; }
+
+  /* --- Contact --- */
+  .contact-section { padding: 40px 20px; }
+
+  .contact-container { flex-direction: column; gap: 24px; }
+
+  .contact-form-wrapper, .contact-info-card { width: 100%; }
+
+  /* --- Footer --- */
+  .footer { padding: 50px 20px 24px; }
+
+  .footer-content { flex-direction: column; gap: 32px; }
+
+  .footer-col-main { min-width: unset; }
+
+  .footer-col-main h3 { font-size: 1.4rem; }
+
+  .footer-bottom { margin-top: 36px; }
+
+  /* --- Section subtitles & headers --- */
+  .section-header-center { padding: 0 10px; }
+
+  .section-subtitle { font-size: 0.95rem; }
+}
+
+/* ============================
+   SMALL PHONES ( ≤ 480px )
+============================ */
+@media (max-width: 480px) {
+  .hero-title { font-size: 1.7rem; }
+
+  .greeting-box { font-size: 0.85rem; }
+
+  .btn { padding: 10px 18px; font-size: 0.9rem; }
+
+  .section-title { font-size: 1.5rem; }
+
+  .ach-text h3 { font-size: 1rem; }
+
+  .project-card { padding: 20px 16px; }
+
+  .info-item { gap: 12px; }
+}

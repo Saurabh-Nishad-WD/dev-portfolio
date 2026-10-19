@@ -6,6 +6,7 @@ function App() {
   const [activeAchievement, setActiveAchievement] = useState('tcs');
   const [animDir, setAnimDir] = useState('');
   const [certModal, setCertModal] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleAchievementChange = (id) => {
     if (id === activeAchievement) return;
@@ -26,15 +27,23 @@ function App() {
         {/* Navbar */}
         <nav className="navbar">
           <div className="nav-brand">Saurabh Nishad</div>
-          
-          <ul className="nav-links">
-            <li><a href="#home" className="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experiences">Experiences</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+
+          {/* Hamburger - mobile only */}
+          <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+            <span className={`ham-line ${menuOpen ? 'open' : ''}`}></span>
+            <span className={`ham-line ${menuOpen ? 'open' : ''}`}></span>
+            <span className={`ham-line ${menuOpen ? 'open' : ''}`}></span>
+          </button>
+
+          <ul className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
+            <li><a href="#home" className="active" onClick={() => setMenuOpen(false)}>Home</a></li>
+            <li><a href="#about" onClick={() => setMenuOpen(false)}>About</a></li>
+            <li><a href="#experiences" onClick={() => setMenuOpen(false)}>Experiences</a></li>
+            <li><a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a></li>
+            <li><a href="#expertise" onClick={() => setMenuOpen(false)}>Expertise</a></li>
+            <li><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
           </ul>
-          
+
           <div className="nav-actions">
             <a href="#contact" className="btn btn-outline">Hire me</a>
             <a href="#contact" className="btn btn-primary">Contact</a>
@@ -412,7 +421,6 @@ I am a Full Stack Developer specializing in building modern, scalable, and user-
                 <div className="ach-text">
                   <span className="ach-badge">Problem Solving</span>
                   <h3>LeetCode — 600+ Problems Solved</h3>
-                  <p className="ach-date">🗓️ As of 19 October 2026</p>
                   <p>Solved over <strong>600 coding problems</strong> on LeetCode, consistently strengthening problem-solving skills across Data Structures, Algorithms, Dynamic Programming, and programming proficiency.</p>
                 </div>
               </div>
